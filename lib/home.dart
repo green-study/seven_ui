@@ -48,35 +48,65 @@ class _MainPageState extends State<MainPage> {
       drawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
-          children: [
-            const DrawerHeader(
+          children: <Widget>[
+            UserAccountsDrawerHeader(
+              currentAccountPicture: CircleAvatar(
+                backgroundImage: AssetImage('images/flower1.png'),
+                backgroundColor: Colors.white,
+              ),
+              otherAccountsPictures: <Widget>[
+                CircleAvatar(
+                  backgroundColor: Colors.white,
+                  backgroundImage: AssetImage('images/flower3.png'),
+                ),
+              ],
+              accountName: Text('SEVEN'),
+              accountEmail: Text('SEVEN@email.com'),
+              onDetailsPressed: () {},
               decoration: BoxDecoration(
                 color: Colors.amber,
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(40.0),
+                  bottomRight: Radius.circular(40.0),
+                ),
               ),
-              child: Text('Re:ink'),
             ),
             ListTile(
-              title: const Text('타임캡슐 보관함'),
+              leading: Icon(
+                Icons.drafts,
+                color: Colors.grey[850],
+              ),
+              title: Text('Time Capsule'),
               onTap: () {
-                Navigator.pop(context);
+                print('Time Capsule is clicked');
               },
+              trailing: Icon(Icons.add),
             ),
             ListTile(
-              title: const Text('친구 관리'),
+              leading: Icon(
+                Icons.people,
+                color: Colors.grey[850],
+              ),
+              title: Text('Friends'),
               onTap: () {
-                Navigator.pop(context);
+                print('Friends is clicked');
               },
+              trailing: Icon(Icons.add),
             ),
             ListTile(
-              title: const Text('계정 관리'),
+              leading: Icon(
+                Icons.settings,
+                color: Colors.grey[850],
+              ),
+              title: Text('Setting'),
               onTap: () {
-                Navigator.pop(context);
+                print('Setting is clicked');
               },
+              trailing: Icon(Icons.add),
             ),
           ],
         ),
       ),
-
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
